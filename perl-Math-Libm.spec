@@ -3,8 +3,8 @@
 %bcond_without	tests	# do not perform "make test"
 #
 %include	/usr/lib/rpm/macros.perl
-%define	pdir	Math
-%define	pnam	Libm
+%define		pdir	Math
+%define		pnam	Libm
 Summary:	Math::Libm - Perl extension for the C math library, libm
 Summary(pl):	Math::Libm - rozszerzenie Perla dla biblioteki matematycznej C - libm
 Name:		perl-Math-Libm
