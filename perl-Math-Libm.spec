@@ -1,0 +1,56 @@
+#
+# Conditional build:
+# _without_tests - do not perform "make test"
+#
+%include	/usr/lib/rpm/macros.perl
+%define	pdir	Math
+%define	pnam	Libm
+Summary:	Math::Libm - Perl extension for the C math library, libm
+Summary(pl):	Math::Libm - rozszerzenie Perla dla biblioteki matematycznej C - libm
+Name:		perl-Math-Libm
+Version:	1.00
+Release:	1
+License:	unknown
+Group:		Development/Languages/Perl
+Source0:	http://www.cpan.org/modules/by-module/%{pdir}/%{pdir}-%{pnam}-%{version}.tar.gz
+# Source0-md5:	26a4ce8fe507d04c7d40b9eadac428ae
+BuildRequires:	perl-devel >= 5.8.0
+BuildRequires:	rpm-perlprov >= 4.1-13
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+
+%description
+This module is a translation of the C <math.h> file.
+
+%description -l pl
+Ten modu³ jest t³umaczeniem pliku nag³ówkowego C <math.h>.
+
+%prep
+%setup -q -n %{pdir}-%{pnam}-%{version}
+
+%build
+%{__perl} Makefile.PL \
+	INSTALLDIRS=vendor
+
+%{__make} \
+	OPTIMIZE="%{rpmcflags}"
+
+%{!?_without_tests:%{__make} test}
+
+%install
+rm -rf $RPM_BUILD_ROOT
+
+%{__make} install \
+	DESTDIR=$RPM_BUILD_ROOT
+
+%clean
+rm -rf $RPM_BUILD_ROOT
+
+%files
+%defattr(644,root,root,755)
+%doc Changes README
+%{perl_vendorarch}/Math/Libm.pm
+%dir %{perl_vendorarch}/auto/Math/Libm
+%{perl_vendorarch}/auto/Math/Libm/autosplit.ix
+%{perl_vendorarch}/auto/Math/Libm/Libm.bs
+%attr(755,root,root) %{perl_vendorarch}/auto/Math/Libm/Libm.so
+%{_mandir}/man3/*
