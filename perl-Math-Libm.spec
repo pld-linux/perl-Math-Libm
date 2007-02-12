@@ -6,7 +6,7 @@
 %define		pdir	Math
 %define		pnam	Libm
 Summary:	Math::Libm - Perl extension for the C math library, libm
-Summary(pl):	Math::Libm - rozszerzenie Perla dla biblioteki matematycznej C - libm
+Summary(pl.UTF-8):   Math::Libm - rozszerzenie Perla dla biblioteki matematycznej C - libm
 Name:		perl-Math-Libm
 Version:	1.00
 Release:	2
@@ -21,8 +21,8 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 This module is a translation of the C <math.h> file.
 
-%description -l pl
-Ten modu≥ jest t≥umaczeniem pliku nag≥Ûwkowego C <math.h>.
+%description -l pl.UTF-8
+Ten modu≈Ç jest t≈Çumaczeniem pliku nag≈Ç√≥wkowego C <math.h>.
 
 %prep
 %setup -q -n %{pdir}-%{pnam}-%{version}
