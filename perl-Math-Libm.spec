@@ -9,7 +9,7 @@ Summary:	Math::Libm - Perl extension for the C math library, libm
 Summary(pl.UTF-8):	Math::Libm - rozszerzenie Perla dla biblioteki matematycznej C - libm
 Name:		perl-Math-Libm
 Version:	1.00
-Release:	2
+Release:	3
 License:	unknown
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/%{pdir}/%{pdir}-%{pnam}-%{version}.tar.gz
